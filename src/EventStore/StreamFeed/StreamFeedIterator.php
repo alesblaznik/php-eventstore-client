@@ -22,7 +22,7 @@ final class StreamFeedIterator implements \Iterator
 
     private $rewinded;
 
-    private function __construct(
+    public function __construct(
         EventStoreInterface $eventStore,
         $streamName,
         LinkRelation $startingRelation,
