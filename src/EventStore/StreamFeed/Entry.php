@@ -41,6 +41,14 @@ final class Entry
     /**
      * @return array
      */
+    public function getJson()
+    {
+        return $this->json;
+    }
+
+    /**
+     * @return array
+     */
     protected function getLinks()
     {
         return $this->json['links'];
