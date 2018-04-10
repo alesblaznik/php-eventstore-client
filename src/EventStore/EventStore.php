@@ -144,12 +144,13 @@ final class EventStore implements EventStoreInterface
      */
     protected function createEventFromResponseContent(array $content)
     {
+        $eventId = $content['eventId'];
         $type = $content['eventType'];
         $version = (integer) $content['eventNumber'];
         $data = $content['data'];
         $metadata = (!empty($content['metadata'])) ? $content['metadata'] : null;
 
-        return new Event($type, $version, $data, $metadata);
+        return new Event($eventId, $type, $version, $data, $metadata);
     }
 
     /**

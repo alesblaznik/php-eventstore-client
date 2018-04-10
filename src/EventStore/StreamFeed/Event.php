@@ -11,6 +11,11 @@ final class Event
     /**
      * @var string
      */
+    private $eventId;
+
+    /**
+     * @var string
+     */
     private $type;
 
     /**
@@ -29,17 +34,27 @@ final class Event
     private $metadata;
 
     /**
+     * @param string $eventId
      * @param string  $type
      * @param integer $version
      * @param array   $data
      * @param array   $metadata
      */
-    public function __construct($type, $version, array $data, array $metadata = null)
+    public function __construct($eventId, $type, $version, array $data, array $metadata = null)
     {
+        $this->eventId = $eventId;
         $this->type = $type;
         $this->version = (integer) $version;
         $this->data = $data;
         $this->metadata = $metadata;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEventId()
+    {
+        return $this->eventId;
     }
 
     /**
