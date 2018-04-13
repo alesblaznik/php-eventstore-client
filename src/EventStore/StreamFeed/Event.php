@@ -34,19 +34,26 @@ final class Event
     private $metadata;
 
     /**
+     * @var integer
+     */
+    private $positionEventNumber;
+
+    /**
      * @param string $eventId
      * @param string  $type
      * @param integer $version
      * @param array   $data
      * @param array   $metadata
+     * @param integer $positionEventNumber
      */
-    public function __construct($eventId, $type, $version, array $data, array $metadata = null)
+    public function __construct($eventId, $type, $version, array $data, array $metadata = null, $positionEventNumber)
     {
         $this->eventId = $eventId;
         $this->type = $type;
         $this->version = (integer) $version;
         $this->data = $data;
         $this->metadata = $metadata;
+        $this->positionEventNumber = $positionEventNumber;
     }
 
     /**
@@ -87,5 +94,13 @@ final class Event
     public function getMetadata()
     {
         return $this->metadata;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPositionEventNumber()
+    {
+        return $this->positionEventNumber;
     }
 }
