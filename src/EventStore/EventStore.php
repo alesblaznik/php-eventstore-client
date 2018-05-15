@@ -151,6 +151,11 @@ final class EventStore implements EventStoreInterface
         $metadata = (!empty($content['metadata'])) ? $content['metadata'] : null;
         $positionEventNumber = $content['positionEventNumber'] ?? $version;
 
+        if (empty($data)) {
+            // Handles events with data is empty string
+            $data = [];
+        }
+
         return new Event($eventId, $type, $version, $data, $metadata, (integer) $positionEventNumber);
     }
 
