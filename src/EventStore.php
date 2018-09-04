@@ -15,7 +15,6 @@ use EventStore\StreamFeed\Event;
 use EventStore\StreamFeed\LinkRelation;
 use EventStore\StreamFeed\StreamFeed;
 use EventStore\StreamFeed\StreamFeedIterator;
-use EventStore\ValueObjects\Identity\UUID;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
@@ -193,12 +192,12 @@ final class EventStore implements EventStoreInterface
      */
     private function createEventFromResponseContent(array $content): Event
     {
+        $eventId = $content['eventId'];
         $type = $content['eventType'];
         $version = (int) $content['eventNumber'];
         $data = $content['data'];
         $metadata = (!empty($content['metadata'])) ? $content['metadata'] : null;
         $positionEventNumber = $content['positionEventNumber'] ?? $version;
-        $eventId = (!empty($content['eventId']) ? UUID::fromNative($content['eventId']) : null);
 
         if (empty($data)) {
             // Handles events with data is empty string

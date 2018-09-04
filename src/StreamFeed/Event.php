@@ -9,7 +9,7 @@ use EventStore\ValueObjects\Identity\UUID;
 final class Event
 {
     /**
-     * @var UUID
+     * @var string
      */
     private $eventId;
 
@@ -39,14 +39,14 @@ final class Event
     private $positionEventNumber;
 
     /**
-     * @param UUID $eventId
+     * @param string  $eventId
      * @param string  $type
      * @param integer $version
      * @param array   $data
      * @param array   $metadata
      * @param integer $positionEventNumber
      */
-    public function __construct(UUID $eventId, $type, $version, array $data, array $metadata = null, $positionEventNumber)
+    public function __construct($eventId, $type, $version, array $data, array $metadata = null, $positionEventNumber)
     {
         $this->eventId = $eventId;
         $this->type = $type;
@@ -98,7 +98,7 @@ final class Event
     }
 
     /**
-     * @return UUID
+     * @return string
      */
     public function getEventId()
     {
