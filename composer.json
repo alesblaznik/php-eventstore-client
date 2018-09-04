@@ -1,59 +1,69 @@
 {
-    "name": "dbellettini/eventstore-client",
-    "description": "EventStore client for PHP",
-    "type": "library",
-    "keywords": [
-        "eventsourcing",
-        "eventstore"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Davide Bellettini",
-            "email": "davide@bellettini.me",
-            "homepage": "http://bellettini.me/"
-        },
-        {
-            "name": "Nicolò Pignatelli",
-            "email": "pignatelli.nicolo@gmail.com",
-            "homepage": "http://nicolopignatelli.me/"
-        },
-        {
-            "name": "Contributors",
-            "homepage": "https://github.com/dbellettini/php-eventstore-client/graphs/contributors"
-        }
-    ],
-    "require": {
-        "php": ">=5.5.0",
-        "guzzlehttp/psr7": "~1.2",
-        "ramsey/uuid": "~2.8",
-        "marc-mabe/php-enum": "~2.1"
+  "name": "friendsofouro/geteventstore-core",
+  "description": "EventStore client for PHP (core)",
+  "type": "library",
+  "keywords": [
+    "eventsourcing",
+    "eventstore"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Davide Bellettini",
+      "email": "davide@bellettini.eu",
+      "homepage": "http://bellettini.eu/"
     },
-    "require-dev": {
-        "guzzlehttp/guzzle": "~6.0",
-        "phpunit/phpunit": "@stable"
+    {
+      "name": "Nicolò Pignatelli",
+      "email": "pignatelli.nicolo@gmail.com",
+      "homepage": "http://nicolopignatelli.me/"
     },
-    "suggest": {
-        "guzzlehttp/guzzle": "Default PSR-7 implementation",
-        "dbellettini/broadway-eventstore": "Integrate Event Store with Broadway",
-        "dbellettini/eventstore-client-bundle": "Integrate Event Store with Symfony 2"
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
-    "autoload": {
-        "psr-0": {
-            "EventStore": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-0": {
-            "EventStore": "tests/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.6.x-dev"
-        }
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/friendsofouro/geteventstore-php-core/graphs/contributors"
     }
+  ],
+  "replace": {
+    "dbellettini/php-eventstore-client": "self.version",
+    "dbellettini/geteventstore-core": "self.version"
+  },
+  "require": {
+    "php": "~7.2",
+    "guzzlehttp/psr7": "~1.2",
+    "ramsey/uuid": "^3.4.1",
+    "marc-mabe/php-enum": "^3.0",
+    "php-http/httplug": "^1.1"
+  },
+  "require-dev": {
+    "guzzlehttp/guzzle": "~6.0",
+    "phpunit/phpunit": "~7.1",
+    "kevinrob/guzzle-cache-middleware": "^0.7.1",
+    "doctrine/cache": "~1.4",
+    "friendsofphp/php-cs-fixer": "~2.2"
+  },
+  "suggest": {
+    "guzzlehttp/guzzle": "Default PSR-7 implementation",
+    "kevinrob/guzzle-cache-middleware": "Cache HTTP requests",
+    "doctrine/cache": "Use Doctrine to cache HTTP requests",
+    "friendsofouro/broadway-eventstore": "Integrate Event Store with Broadway",
+    "friendsofouro/geteventstore-bundle": "Integrate Event Store with Symfony 2"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "EventStore\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "EventStore\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.6.x-dev"
+    }
+  }
 }

@@ -2,20 +2,12 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
+  - 7.2
 
 env:
-  - EVENT_STORE_VERSION='Linux-v3.0.5' EVENT_STORE_DAEMON='clusternode'
-  - EVENT_STORE_VERSION='Ubuntu-v3.1.0' EVENT_STORE_DAEMON='eventstored'
+  - EVENT_STORE_VERSION='Ubuntu-14.04-v4.1.0' EVENT_STORE_DAEMON='eventstored'
 
 sudo: false
-
-matrix:
-  allow_failures:
-    - php: hhvm
 
 cache:
   directories:
